@@ -16,8 +16,9 @@ public class Pojo {
     private String spaceId;
     private Integer routingId;
     private String payload;
+    private boolean processed;
 
-    @SpaceId
+    @SpaceId(autoGenerate = true)
     public String getSpaceId() {
         return spaceId;
     }
@@ -41,6 +42,18 @@ public class Pojo {
 
     public void setPayload(String payload) {
         this.payload = payload;
+    }
+
+    public boolean getProcessed(){
+        return isProcessed();
+    }
+
+    public boolean isProcessed() {
+        return processed;
+    }
+
+    public void setProcessed(boolean processed) {
+        this.processed = processed;
     }
 
     /**
