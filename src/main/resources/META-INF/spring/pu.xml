@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:os-core="http://www.openspaces.org/schema/core"
-       xmlns="http://www.springframework.org/schema/beans"
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.openspaces.org/schema/core http://www.openspaces.org/schema/9.5/core/openspaces-core.xsd
-       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
-       ">
+       xmlns:os-core="http://www.openspaces.org/schema/core"
+       xmlns:os-events="http://www.openspaces.org/schema/events"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+       http://www.openspaces.org/schema/core http://www.openspaces.org/schema/9.7/core/openspaces-core.xsd
+       http://www.openspaces.org/schema/events http://www.openspaces.org/schema/9.7/events/openspaces-events.xsd">
+
+    <context:component-scan base-package="com.gigaspaces.sbp"/>
+
+    <os-events:annotation-support />
 
     <os-core:space id="spaceProxy" url="/./log4jSpace" />
     <os-core:distributed-tx-manager id="transactionManager"/>
     <os-core:giga-space id="gigaSpace" space="spaceProxy" tx-manager="transactionManager"/>
-
-    <context:component-scan base-package="com.gigaspaces.sbp"/>
 
 </beans>

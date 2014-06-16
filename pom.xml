@@ -62,6 +62,15 @@
     </dependencies>
 
     <build>
+        <!--<resources>-->
+            <!--<resource>-->
+                <!--<directory>src/main/resources</directory>-->
+                <!--<targetPath>${basedir}/target</targetPath>-->
+                <!--<includes>-->
+                    <!--<include>log4j.properties</include>-->
+                <!--</includes>-->
+            <!--</resource>-->
+        <!--</resources>-->
         <pluginManagement>
             <plugins>
                 <plugin>

@@ -19,16 +19,19 @@ public class Poller {
     private Logger logger = Logger.getLogger(getClass());
 
     @EventTemplate
-    public Pojo template(){
+    public Pojo template() {
         Pojo pojo = new Pojo();
         pojo.setProcessed(false);
         return pojo;
     }
 
     @SpaceDataEvent
-    public Pojo process(Pojo pojo){
+    public Pojo process(Pojo pojo) {
 
-        logger.info(String.format("Processing pojo: [ %s ]", pojo));
+        String msg = String.format("Processing pojo: [ %s ]", pojo);
+
+        System.err.println("err: " + msg);
+        logger.info(msg);
 
         pojo.setProcessed(true);
         return pojo;

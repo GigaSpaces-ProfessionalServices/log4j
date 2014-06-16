@@ -34,8 +34,10 @@ public class Log4jTest {
      */
     @Test
     public void testPollerLoggingByWriting() {
-        for (int i = 0; i < NUM_TEST_INSTANCES; i++)
+        for (int i = 0; i < NUM_TEST_INSTANCES; i++) {
+            System.err.println("Foo " + i );
             gigaSpace.write(testInstance());
+        }
     }
 
     private int pojoNum = 1;
