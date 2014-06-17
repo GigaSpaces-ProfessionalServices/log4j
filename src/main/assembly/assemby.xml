@@ -18,9 +18,22 @@
     <dependencySets>
         <dependencySet>
             <useProjectArtifact>false</useProjectArtifact>
+            <useTransitiveDependencies>false</useTransitiveDependencies>
+            <outputDirectory>lib</outputDirectory>
+            <excludes>
+                <exclude>com.gigaspaces.tutorials:common</exclude>
+            </excludes>
+        </dependencySet>
+        <dependencySet>
+            <useProjectArtifact>false</useProjectArtifact>
             <useTransitiveDependencies>true</useTransitiveDependencies>
             <useTransitiveFiltering>true</useTransitiveFiltering>
             <outputDirectory>lib</outputDirectory>
+            <includes>
+                <include>org.slf4j:slf4j-api</include>
+                <include>org.slf4j:jul-to-slf4j</include>
+                <include>log4j:log4j</include>
+            </includes>
         </dependencySet>
     </dependencySets>
 </assembly>

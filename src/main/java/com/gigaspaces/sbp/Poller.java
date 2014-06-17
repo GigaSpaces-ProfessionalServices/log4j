@@ -5,6 +5,7 @@ import org.openspaces.events.EventDriven;
 import org.openspaces.events.EventTemplate;
 import org.openspaces.events.adapter.SpaceDataEvent;
 import org.openspaces.events.polling.Polling;
+import org.slf4j.LoggerFactory;
 
 /**
  * Created by IntelliJ IDEA.
@@ -16,7 +17,9 @@ import org.openspaces.events.polling.Polling;
 @Polling
 public class Poller {
 
-    private Logger log4jLogger = Logger.getLogger(getClass());
+    private Class<?> clazz = getClass();
+    private Logger log4jLogger = Logger.getLogger(clazz);
+    private org.slf4j.Logger slf4jLogger = LoggerFactory.getLogger(clazz);
 
     @EventTemplate
     public Pojo template() {
@@ -31,6 +34,7 @@ public class Poller {
         String msg = String.format("Processing pojo: [ %s ]", pojo);
 
         log4jLogger.info(msg);
+        slf4jLogger.info(msg);
 
         pojo.setProcessed(true);
         return pojo;
