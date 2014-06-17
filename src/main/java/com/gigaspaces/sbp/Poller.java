@@ -16,7 +16,7 @@ import org.openspaces.events.polling.Polling;
 @Polling
 public class Poller {
 
-    private Logger logger = Logger.getLogger(getClass());
+    private Logger log4jLogger = Logger.getLogger(getClass());
 
     @EventTemplate
     public Pojo template() {
@@ -30,8 +30,7 @@ public class Poller {
 
         String msg = String.format("Processing pojo: [ %s ]", pojo);
 
-        System.err.println("err: " + msg);
-        logger.info(msg);
+        log4jLogger.info(msg);
 
         pojo.setProcessed(true);
         return pojo;
