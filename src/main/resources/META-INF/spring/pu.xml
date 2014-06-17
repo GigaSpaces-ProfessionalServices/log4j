@@ -13,6 +13,9 @@
 
     <os-events:annotation-support />
 
+    <bean id="initJulBridge" class="com.gigaspaces.sbp.InitializeJulBridge"
+          init-method="init"/>
+
     <os-core:space id="spaceProxy" url="/./log4jSpace" />
     <os-core:distributed-tx-manager id="transactionManager"/>
     <os-core:giga-space id="gigaSpace" space="spaceProxy" tx-manager="transactionManager"/>
